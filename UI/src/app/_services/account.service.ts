@@ -28,13 +28,13 @@ export class AccountService {
 
   register(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
-      map(user => {
-        if(user) {
+      map((user) => {
+        if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           this.currentUserSource.next(user);
         }
       })
-    )
+    );
   }
 
   setCurrentUser(user: User) {
